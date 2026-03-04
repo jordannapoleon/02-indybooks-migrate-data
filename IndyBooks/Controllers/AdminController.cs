@@ -41,24 +41,46 @@ namespace IndyBooks.Controllers
         }
 
         //TODO: Add the CreateBook GET method
+
+        [HttpGet]
+        public IActionResult CreateBook()
+        {
+        
+
+
+            return View();
+        }
  
         [HttpPost]
         public IActionResult CreateBook(CreateBookVM bookVM)
         {
             //TODO: Add Model Validation
+            if (!ModelState.IsValid)
+            {
+                return View(bookVM);
+            }
 
 
             //TODO: Once you've added the Writers DbSet, create a Writer object using the view Model info
-        
-
+            Writer NewWriter = new Writer
+            {
+                Name = bookVM.Author.Name,
+            };
+    
 
             //TODO: Once you've added the Writers DbSet, modify the Book using your newly created author.
-   
+            Book NewBook = new Book
+            {
+                Title = bookVM.Title,
+                SKU = bookVM.SKU,
+                Price = bookVM.Price,
+                Author = NewWriter
+            };
 
 
             //TODO: Once you've added the Writers DbSet, add author to the dataset
-      
-
+             _db.Books.Add(NewBook);
+            _db.SaveChanges();
 
             return RedirectToAction("Search");
         }

@@ -29,7 +29,7 @@ namespace IndyBooks.Services
             //TODO: after updating the Book Entity, update the RuleFor the Author to add a random Writer from the writers collection
                 var fakeBook = new Faker<Book>()
                 .RuleFor(b => b.Title, t => t.PickRandom(titles))
-                .RuleFor(b => b.Author.Name, t => t.PickRandom(author_names))
+                .RuleFor(b => b.Author, t => t.PickRandom(writers))
                 .RuleFor(b => b.SKU, n => n.Random.Replace("IB****-##"))
                 .RuleFor(b => b.Price, f => f.Random.Decimal(9.99M, 149.99M))
 

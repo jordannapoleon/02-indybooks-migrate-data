@@ -9,17 +9,16 @@ public class CreateBookVM
     // Be sure to add Data Annotations for Validation and Error Messages as shown
     public long BookId { get; set; }
 
-   [Required(ErrorMessage = "Book title please")]
+   [Required(ErrorMessage = "book title please")]
     [Display(Name = "Title")]
     public string Title { get; set; }
 
-    [Required(ErrorMessage = "Just make it up")]
+    [Required(ErrorMessage = "just make it up")]
     public string SKU { get; set; }
 
-    [Required(ErrorMessage = "The value is invalid")]
+    [Required(ErrorMessage = "the value is invalid")]
     public decimal Price { get; set; }
 
-    [Required(ErrorMessage = "Author's Name please")]
     [Display(Name = "AuthorName")]
     public Writer Author { get; set; }
     
