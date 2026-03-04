@@ -6,13 +6,29 @@
 
 }
 <h3>Add New Book</h3>
-<form asp-action="CreateBook" asp-controller="Admin">
-    <!-- TODO: Modify the basic template below using asp- tag helpers to create 
-        a label, field, and validaiton error message span for each CreateBook field in Fig.3 -->
+<form asp-action="CreateBook" asp-controller="Admin" method="post">
     <div>
-        <label ></label>
-        <input />
-        <span ></span>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" ></span>
+    </div>
+
+    <div>
+        <label asp-for="SKU"></label>
+        <input asp-for="SKU" />
+        <span asp-validation-for="SKU" ></span>
+    </div>
+
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </div>
+
+    <div>
+        <label asp-for="Author"></label>
+        <input asp-for="Author.Name" /> 
+        <span asp-validation-for="Author"></span>
     </div>
    
     <input type="submit" value="Submit" />
